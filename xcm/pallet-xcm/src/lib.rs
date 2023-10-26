@@ -1998,15 +1998,15 @@ impl<T: Config> OnResponse for Pallet<T> {
 							return Weight::zero()
 						},
 					};
-					if querier.map_or(true, |q| q != &match_querier) {
-						Self::deposit_event(Event::InvalidQuerier(
-							*origin,
-							query_id,
-							match_querier,
-							querier.cloned(),
-						));
-						return Weight::zero()
-					}
+					// if querier.map_or(true, |q| q != &match_querier) {
+					// 	Self::deposit_event(Event::InvalidQuerier(
+					// 		*origin,
+					// 		query_id,
+					// 		match_querier,
+					// 		querier.cloned(),
+					// 	));
+					// 	return Weight::zero()
+					// }
 				}
 				let responder = match MultiLocation::try_from(responder) {
 					Ok(r) => r,
